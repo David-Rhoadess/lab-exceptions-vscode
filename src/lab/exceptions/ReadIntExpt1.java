@@ -5,8 +5,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
 /**
- * A simple experiment to see whether readInt works. (Unit tests are a PITA for
- * I/O.)
+ * A simple experiment to see whether readInt works. (Unit tests are a PITA for I/O.)
  * 
  * @author Samuel A. Rebelsky
  * @author Your Name Here

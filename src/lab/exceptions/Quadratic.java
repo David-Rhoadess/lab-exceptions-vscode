@@ -1,5 +1,7 @@
 package lab.exceptions;
 
+import java.lang.Math;
+
 /**
  * Quadratic expressions (of the form ax^2 + bx + c).
  * 
@@ -10,7 +12,7 @@ public class Quadratic {
   // +--------+------------------------------------------------------
   // | Fields |
   // +--------+
-  
+
   /**
    * The coefficient of the x^2 component.
    */
@@ -60,25 +62,34 @@ public class Quadratic {
   public String toString(double val) {
     return a + "*" + val + "^2" + "+" + b + "*" + val + "+" + c;
   } // toString(double)
-  
+
   /**
    * Evaluate the quadratic on a value.
    */
   public double evaluate(double x) {
-    return this.a*x*x  + this.b*x + this.c;
+    return this.a * x * x + this.b * x + this.c;
   } // evaluate(double)
 
   /**
    * Find the smaller of the two roots.
    */
-  public double smallerRoot() {
-    return 0;   // STUB
+  public double smallerRoot() throws Exception, DivideByZeroException {
+    if (a == 0) {
+      throw new DivideByZeroException("dividing by 0 is not allowed");
+    } // if (a == 0)
+
+    double sqroot = (b * b) - (4 * a * c);
+    if (sqroot < 0) {
+      throw new Exception("b^2 - 4ac < 0");
+    }
+
+    return (-b - Math.sqrt(sqroot)) / (2 * a);
   } // smallerRoot
 
   /**
    * Find the larger of the two roots.
    */
   public double largerRoot() {
-    return 0;   // STUB
+    return 0; // STUB
   } // largerRoot
 } // class Quadratic
